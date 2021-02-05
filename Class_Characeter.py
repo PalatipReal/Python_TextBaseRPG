@@ -59,9 +59,10 @@ class Player_Characeter    :                                            # สร
         self.Now_HP = PlayerNowHP
     def setPlayerFullHP(self):
         self.Now_HP = self.Max_HP
-    def LvlUpPlayer(self):
+    def setLvlUpPlayer(self):
         self.Now_lvl = self.Now_lvl + 1
         self.Now_Exp = 0
+        self.Max_Exp = (10*(self.Now_lvl^2))/1
         
 class Monter_Characeter    :                                            # สร้าง Class สำหรับ Monter นำหน้าที่ควบคุม เก็บข้อมูลของตัวละคร
     def __init__(Monter)   :                                            # ฟังชั่น ประกาศตัวแปรเริ่มต้นของ Class 
