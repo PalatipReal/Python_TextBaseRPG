@@ -59,6 +59,11 @@ class Player_Characeter    :                                            # สร
         self.Now_HP = PlayerNowHP
     def setPlayerFullHP(self):
         self.Now_HP = self.Max_HP
+    def checkLvlUpPlayer(self,newPlayerExp):
+        self.Now_Exp = self.Now_Exp + newPlayerExp
+        if(self.Now_Exp >= self.Max_Exp):
+            self.Now_lvl = self.Now_lvl + 1
+            self.Now_Exp = self.Max_Exp - self.Now_Exp    
     def setLvlUpPlayer(self):
         self.Now_lvl = self.Now_lvl + 1
         self.Now_Exp = 0
