@@ -44,9 +44,12 @@ class MainGame(Player_Characeter) :
                 # ให้ตัวแปร StateBattle เท่ากับ 3 เพื่อให้หลุดจากลูป Battle
                 # จบการทำงานของ เงื่อนไข 
                 if (Monter.getMonterNow_Hp()<=0):
-                    del Monter
-                    print("Monter Dead...") 
+                    print("Monter Dead...")
+                    print("Get Exp From Monter : "+str(Monter.getExpFromMonter()))
+                    self.checkLvlUpPlayer(Monter.getExpFromMonter()) 
+                    self.setPlayerFullHP()
                     StateBattle = "3"
+                    del Monter
                     return
                 # รับค่าจาก Class Monter_Chareacter ผ่าน method getMonterRealDamage() มาเก็บตัวแปร MonterRealDamage
                 MonterRealDamage = Monter.getMonterRealDamage()
