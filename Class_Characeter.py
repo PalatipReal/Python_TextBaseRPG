@@ -94,3 +94,5 @@ class Monter_Characeter    :                                            # สร
         self.Now_HP = NowHP
     def getMonterRealDamage(self):
         return self.Base_Damage + random.randint(-5,5)
+    def getExpFromMonter(self):
+        return ( (150 * self.Now_lvl )/10 )
