@@ -5,7 +5,7 @@ class Player_Characeter    :                                            # สร
         characeter.Age                      =   age                     # รับค่า อายุ ตัวละคร เข้ามาจากตอนสร้าง Class 
         characeter.Max_lvl                  =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า lvl สูงสุด ของตัวละคร
         characeter.Now_lvl                  =   1                       # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า lvl ปัจจุบัน ของตัวละคร
-        characeter.Max_Exp                  =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Exp สูงสุด ของตัวละคร
+        characeter.Max_Exp                  =   10                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Exp สูงสุด ของตัวละคร
         characeter.Now_Exp                  =   1                       # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Exp ปัจจุบัน ของตัวละคร
         characeter.Max_HP                   =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า HP สูงสุด ของตัวละคร
         characeter.Now_HP                   =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า HP ปัจจุบัน ของตัวละคร
@@ -51,6 +51,7 @@ class Player_Characeter    :                                            # สร
         print("Player Lv.  :    "+str(self.Now_lvl)+"/"+str(self.Max_lvl))
         print("Player HP   :    "+str(self.Now_HP)+"/"+str(self.Max_HP))
         print("Player Mana :    "+str(self.Now_Mana)+"/"+str(self.Max_Mana))
+        print("Player EXP  :    "+str(self.Now_Exp)+"/"+str(self.Max_Exp))
         print("Player Damage   :    "+str(self.Base_Damage))
         print("Player Defense  :    "+str(self.Base_Defense))
         print("Player Critical_Rate  :  "+str(self.Base_Critical_Rate))
@@ -63,18 +64,21 @@ class Player_Characeter    :                                            # สร
         self.Now_Exp = self.Now_Exp + newPlayerExp
         if(self.Now_Exp >= self.Max_Exp):
             self.Now_lvl = self.Now_lvl + 1
-            self.Now_Exp = self.Max_Exp - self.Now_Exp    
+            self.Now_Exp = self.Now_Exp  - self.Max_Exp 
+            self.Max_Exp = 10*(self.Now_lvl*self.Now_lvl)/1
+            print("Player Lv.  :    "+str(self.Now_lvl)+"/"+str(self.Max_lvl)) 
+            print("Player EXP  :    "+str(self.Now_Exp)+"/"+str(self.Max_Exp))   
     def setLvlUpPlayer(self):
         self.Now_lvl = self.Now_lvl + 1
         self.Now_Exp = 0
-        self.Max_Exp = (10*(self.Now_lvl^2))/1
+        self.Max_Exp = 10*(self.Now_lvl*self.Now_lvl)/1
         
 class Monter_Characeter    :                                            # สร้าง Class สำหรับ Monter นำหน้าที่ควบคุม เก็บข้อมูลของตัวละคร
     def __init__(Monter)   :                                            # ฟังชั่น ประกาศตัวแปรเริ่มต้นของ Class 
         Monter.Max_lvl                  =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า lvl สูงสุด ของตัวละคร
         Monter.Now_lvl                  =   1                       # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า lvl ปัจจุบัน ของตัวละคร
-        Monter.Max_HP                   =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า HP สูงสุด ของตัวละคร
-        Monter.Now_HP                   =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า HP ปัจจุบัน ของตัวละคร
+        Monter.Max_HP                   =   10                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า HP สูงสุด ของตัวละคร
+        Monter.Now_HP                   =   10                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า HP ปัจจุบัน ของตัวละคร
         Monter.Max_Mana                 =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Mana สูงสุด ของตัวละคร
         Monter.Now_Mana                 =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Mana ปัจจุบัน ของตัวละคร
         Monter.Base_Damage              =   5                       # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Base_Damage  ของตัวละคร
