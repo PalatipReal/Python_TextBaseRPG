@@ -13,7 +13,14 @@ class Player_Characeter    :                                            # สร
         characeter.Now_Mana                 =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Mana ปัจจุบัน ของตัวละคร
         characeter.Base_Damage              =   10                      # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Base_Damage  ของตัวละคร
         characeter.Base_Defense             =   10                      # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Base_Defense  ของตัวละคร             
+        characeter.Base_Accuracy            =   10
+        characeter.Base_Agility             =   10
         characeter.Base_Critical_Rate       =   0.1                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า Base_Critical_Rate  ของตัวละคร
+        characeter.Vit                      =   0
+        characeter.Str                      =   0
+        characeter.Dex                      =   0
+        characeter.Res                      =   0
+        characeter.Luck                     =   0
         random.seed(characeter.Age)
     def getPlayerName(self):                                            # ประกาศ ฟังชั่น สำหรับ รับค่าชื่อตัวละคร 
         return self.Name
@@ -72,7 +79,51 @@ class Player_Characeter    :                                            # สร
         self.Now_lvl = self.Now_lvl + 1
         self.Now_Exp = 0
         self.Max_Exp = 10*(self.Now_lvl*self.Now_lvl)/1
-        
+    def SelectStatusPlayer(self):
+        print("********************************************")
+        print("[1] : Vit")
+        print("[2] : Str")
+        print("[3] : Dex")
+        print("[4] : Res")
+        print("[5] : Luck")
+        print("Select Status...")
+        SelectStatusPlayer = input()
+        if StatePlayer == "1" :
+            print("Select Vit")
+            self.Vit            = self.Vit + 1
+            self.Max_HP         = self.Max_HP + 10
+            self.Base_Damage    = self.Base_Damage + 1
+            self.Base_Defense   = self.Base_Defense +2
+
+        elif StatePlayer == "2" :
+            print("Select Str")
+            self.Str            = self.Str + 1
+            self.Max_HP         = self.Max_HP + 2
+            self.Base_Damage    = self.Base_Damage + 2
+            self.Base_Defense   = self.Base_Defense +10
+        elif StatePlayer == "3" :
+            print("Select Dex")
+            self.Dex            = self.Dex + 1
+            self.Base_Accuracy  = self.Base_Accuracy + 5
+            self.Base_Agility   = self.Base_Agility + 5
+            self.Base_Damage    = self.Base_Damage + 2
+        elif StatePlayer == "4" :
+            print("Select Res")
+            self.Res            = self.Res +1
+            self.Base_Defense   = self.Base_Defense + 10
+            self.Max_HP         = self.Max_HP + 2
+        elif StatePlayer == "5" :
+            print("Select Luck")
+            self.Luck               = self.Luck +1
+            self.Base_Critical_Rate = self.Base_Critical_Rate + 0.1
+            self.Max_HP             = self.Max_HP + 1
+            self.Base_Damage        = self.Base_Damage + 1
+            self.Base_Defense       = self.Base_Defense +1
+            self.Base_Accuracy      = self.Base_Accuracy + 1
+            self.Base_Agility       = self.Base_Agility + 1
+        else:
+        print("In put Wrong PLS Try Again...\n")
+        print("********************************************")
 class Monter_Characeter    :                                            # สร้าง Class สำหรับ Monter นำหน้าที่ควบคุม เก็บข้อมูลของตัวละคร
     def __init__(Monter)   :                                            # ฟังชั่น ประกาศตัวแปรเริ่มต้นของ Class 
         Monter.Max_lvl                  =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า lvl สูงสุด ของตัวละคร
