@@ -73,12 +73,14 @@ class Player_Characeter    :                                            # สร
             self.Now_lvl = self.Now_lvl + 1
             self.Now_Exp = self.Now_Exp  - self.Max_Exp 
             self.Max_Exp = 10*(self.Now_lvl*self.Now_lvl)/1
+            self.SelectStatusPlayer()
             print("Player Lv.  :    "+str(self.Now_lvl)+"/"+str(self.Max_lvl)) 
             print("Player EXP  :    "+str(self.Now_Exp)+"/"+str(self.Max_Exp))   
     def setLvlUpPlayer(self):
         self.Now_lvl = self.Now_lvl + 1
         self.Now_Exp = 0
         self.Max_Exp = 10*(self.Now_lvl*self.Now_lvl)/1
+        self.SelectStatusPlayer()
     def SelectStatusPlayer(self):
         print("********************************************")
         print("[1] : Vit")
@@ -87,43 +89,49 @@ class Player_Characeter    :                                            # สร
         print("[4] : Res")
         print("[5] : Luck")
         print("Select Status...")
-        SelectStatusPlayer = input()
-        if StatePlayer == "1" :
-            print("Select Vit")
-            self.Vit            = self.Vit + 1
-            self.Max_HP         = self.Max_HP + 10
-            self.Base_Damage    = self.Base_Damage + 1
-            self.Base_Defense   = self.Base_Defense +2
-
-        elif StatePlayer == "2" :
-            print("Select Str")
-            self.Str            = self.Str + 1
-            self.Max_HP         = self.Max_HP + 2
-            self.Base_Damage    = self.Base_Damage + 2
-            self.Base_Defense   = self.Base_Defense +10
-        elif StatePlayer == "3" :
-            print("Select Dex")
-            self.Dex            = self.Dex + 1
-            self.Base_Accuracy  = self.Base_Accuracy + 5
-            self.Base_Agility   = self.Base_Agility + 5
-            self.Base_Damage    = self.Base_Damage + 2
-        elif StatePlayer == "4" :
-            print("Select Res")
-            self.Res            = self.Res +1
-            self.Base_Defense   = self.Base_Defense + 10
-            self.Max_HP         = self.Max_HP + 2
-        elif StatePlayer == "5" :
-            print("Select Luck")
-            self.Luck               = self.Luck +1
-            self.Base_Critical_Rate = self.Base_Critical_Rate + 0.1
-            self.Max_HP             = self.Max_HP + 1
-            self.Base_Damage        = self.Base_Damage + 1
-            self.Base_Defense       = self.Base_Defense +1
-            self.Base_Accuracy      = self.Base_Accuracy + 1
-            self.Base_Agility       = self.Base_Agility + 1
-        else:
-        print("In put Wrong PLS Try Again...\n")
-        print("********************************************")
+        SelectStatusPlayer = ""
+        while SelectStatusPlayer != "EndSelectStatusPlayer" :
+            SelectStatusPlayer = input()
+            if SelectStatusPlayer == "1" :
+                print("Select Vit")
+                self.Vit            = self.Vit + 1
+                self.Max_HP         = self.Max_HP + 10
+                self.Base_Damage    = self.Base_Damage + 1
+                self.Base_Defense   = self.Base_Defense +2
+                return
+            elif SelectStatusPlayer == "2" :
+                print("Select Str")
+                self.Str            = self.Str + 1
+                self.Max_HP         = self.Max_HP + 2
+                self.Base_Damage    = self.Base_Damage + 2
+                self.Base_Defense   = self.Base_Defense +10
+                return
+            elif SelectStatusPlayer == "3" :
+                print("Select Dex")
+                self.Dex            = self.Dex + 1
+                self.Base_Accuracy  = self.Base_Accuracy + 5
+                self.Base_Agility   = self.Base_Agility + 5
+                self.Base_Damage    = self.Base_Damage + 2
+                return
+            elif SelectStatusPlayer == "4" :
+                print("Select Res")
+                self.Res            = self.Res +1
+                self.Base_Defense   = self.Base_Defense + 10
+                self.Max_HP         = self.Max_HP + 2
+                return
+            elif SelectStatusPlayer == "5" :
+                print("Select Luck")
+                self.Luck               = self.Luck +1
+                self.Base_Critical_Rate = self.Base_Critical_Rate + 0.1
+                self.Max_HP             = self.Max_HP + 1
+                self.Base_Damage        = self.Base_Damage + 1
+                self.Base_Defense       = self.Base_Defense +1
+                self.Base_Accuracy      = self.Base_Accuracy + 1
+                self.Base_Agility       = self.Base_Agility + 1
+                return
+            else:
+                print("In put Wrong PLS Try Again...\n")
+                print("********************************************")
 class Monter_Characeter    :                                            # สร้าง Class สำหรับ Monter นำหน้าที่ควบคุม เก็บข้อมูลของตัวละคร
     def __init__(Monter)   :                                            # ฟังชั่น ประกาศตัวแปรเริ่มต้นของ Class 
         Monter.Max_lvl                  =   100                     # ประกาศ สร้างตัวแปร สำหรับ เก็บค่า lvl สูงสุด ของตัวละคร
